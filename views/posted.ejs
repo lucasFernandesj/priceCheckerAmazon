@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>You added an item!</h1>
+    <h2>item's name:</h2>
+    <p>
+        <%=params.productName%>
+    </p>
+    <h2>item's URL:</h2>
+    <p>
+        <%=params.productURL%>
+    </p>
+    <h2>Maximum price you are willing to pay:</h2>
+    <p>
+       <%=params.productPrice%> 
+    </p>
+
+    
+  
+    <h2>We will email you as soon as this product is available for less than the maximum price you are willing to pay</h2>
+
+    <a href="displayWishList.html">
+        <div class="wishList">Go to wish list</div>
+    </a>
+
+    <a href="postToWishList.html">
+        <div class="addWishList">Add a product to wish list</div>
+    </a>
+</body>
+</html>
