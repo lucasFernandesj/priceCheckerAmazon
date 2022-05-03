@@ -37,6 +37,11 @@ app.get('/api' , (req , res)=>{
    
 })
 
+//route to update
+app.get('/updated/:product_id' , (req , res)=>{
+    
+})
+
 
 
 //POST request , insert to database
@@ -51,13 +56,12 @@ app.post('/posted' , (req , res)=>{
 
 })
 
-
-
-//Evoque the fetchAPI function every day at 12:00
-cron.schedule('* 15 * * *', () => {
-  fetchAPI()
-  console.log('running a task every minute');
-});
+//* 14 * * * Evoque function every minute past 14:00 , every day
+//Evoque the fetchAPI function every day at 15:00
+// cron.schedule('* 15 * * *', () => {
+//   fetchAPI()
+//   console.log('running a task every minute');
+// });
 
 
 

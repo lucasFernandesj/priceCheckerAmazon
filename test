@@ -1,4 +1,0 @@
-let num = '$299.99$299.99'
-let numArr=num.split('$')
-let price = Number(numArr[1])
-console.log(price < 500)
