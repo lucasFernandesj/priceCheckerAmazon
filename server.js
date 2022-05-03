@@ -48,20 +48,14 @@ app.post('/posted' , (req , res)=>{
 
 
 
-
-
-// function displayData(data){
-//     console.log('inside the display function')
-//     console.log(data)
-// }
+console.log(scrapeData)
 
 
 
 
 
 
-
-
+//testing changes
 
 
 
