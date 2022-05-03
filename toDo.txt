@@ -1,0 +1,7 @@
+Added an input onClick of changePriceBtn on displaywishList.html --> 
+add a whole form with this input inside , the form should have 
+a post request to an updated.ejs that will use the req.body
+to render something like 'updated <%product%> to <%price%>'
+
+On index.html there is an about section , make it somethingonmouseover an 
+about div is displayed with info about the company.

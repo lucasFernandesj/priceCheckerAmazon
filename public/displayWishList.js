@@ -7,9 +7,22 @@ fetch('http://localhost:3000/api')
 
 function addInput(e){
     let id =e.path[0].id
+    let form = document.createElement('form')
+    form.setAttribute('action' , '/updated')
+    form.setAttribute('method' , 'POST')
+
     let input = document.createElement('input')
+    input.setAttribute('type' , 'number')
+    input.setAttribute('name' , 'updatedPrice')
+    input.setAttribute('placeholder' , 'Enter new desired price')
+    input.setAttribute('class' , 'input-update-price')
+
+    let inputSubmit = document.createElement('input')
+    inputSubmit.setAttribute('type' , 'submit')
+    inputSubmit.setAttribute('value' , 'Update desired price')
+    form.append(input , inputSubmit)
     console.log(id)
-    document.getElementsByClassName(`${id}`)[0].append(input)
+    document.getElementsByClassName(`${id}`)[0].append(form)
 }
 
 function appendToDom(data){
