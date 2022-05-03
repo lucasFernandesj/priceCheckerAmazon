@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const puppeteer = require('puppeteer')
 
 let productPriceNow;
 
@@ -11,24 +12,26 @@ function fetchAPI(){
 }
 
 
-// async function scrapeData(data){
-//     if(data.lenght === 0){
-//         return
-//     }
-//     console.log('inside the scrape function')
-//     data.forEach(element => {
-//         let browser = await puppeteer.launch({ headless:false })
-//         let page = await browser.newPage()
-//         await page.goto(element.product_url)
-//         let element = await page.waitForSelector('.apexPriceToPay')
-//         let priceNow = await element.evaluate(el => el.textContent);
-//         let priceInt = Number(priceNow)
-//         productPriceNow = priceNow
-//         if(priceInt <= element.product_price){
-//             sendEmail(element)
-//         }
-//     });  
-// }
+async function scrapeData(data){
+    if(data.lenght === 0){
+        return
+    }
+    console.log('inside the scrape function')
+        for(let i = 0 ; i <data.length; i++ ){
+              let browser = await puppeteer.launch({ headless:false })
+        let page = await browser.newPage()
+        await page.goto(data[i].product_url)
+        let element = await page.waitForSelector('.apexPriceToPay')
+        let priceNow = await element.evaluate(el => el.textContent);
+        let priceInt = Number(priceNow)
+        productPriceNow = priceNow
+        if(priceInt <= data[i].product_price){
+            sendEmail(data[i])
+        }
+        }
+      
+     
+}
 
 
 function sendEmail(element){
@@ -72,6 +75,6 @@ var dateTime = date+' '+time;
 
 
 
- module.exports = {}
+ module.exports = fetchAPI
 
 //cron jobs should evoque fetchAPI() every few hours..

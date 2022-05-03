@@ -5,7 +5,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const fetch = require('node-fetch');
-const scrapeData = require('./puppeteer')
+const fetchAPI = require('./scraper')
+const puppeteer = require('puppeteer')
+
+
+
+
 let db = require('knex')({
     client: 'pg',
     version: '7.2',
@@ -48,14 +53,13 @@ app.post('/posted' , (req , res)=>{
 
 
 
-console.log(scrapeData)
+fetchAPI()
 
 
 
 
 
 
-//testing changes
 
 
 
