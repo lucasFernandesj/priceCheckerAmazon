@@ -6,7 +6,8 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const fetch = require('node-fetch');
 const fetchAPI = require('./scraper')
-const puppeteer = require('puppeteer')
+var cron = require('node-cron');
+const nodemailer = require('nodemailer')
 
 
 
@@ -52,8 +53,11 @@ app.post('/posted' , (req , res)=>{
 
 
 
-
-fetchAPI()
+//Evoque the fetchAPI function every day at 12:00
+cron.schedule('* 15 * * *', () => {
+  fetchAPI()
+  console.log('running a task every minute');
+});
 
 
 
