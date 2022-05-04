@@ -10,7 +10,7 @@ var cron = require('node-cron');
 const nodemailer = require('nodemailer')
 const dotenv = require('dotenv')
 dotenv.config()
-const {getAllProducts , insertToDataBase, updateProduct , deleteProduct} = require('./modules/databaseConnection')
+const {getProduct , getAllProducts , insertToDataBase, updateProduct , deleteProduct} = require('./modules/databaseConnection')
 
 
 
@@ -31,13 +31,6 @@ const {getAllProducts , insertToDataBase, updateProduct , deleteProduct} = requi
 
 //Read from dataBase and create the API
 app.get('/api' , (req , res)=>{
-    // db
-    // .select().from('wishlist')
-    // .then((data)=>{
-    //     res.json(data)
-    // })
-    // .catch(err=>console.log(err))
-
     getAllProducts()
     .then((data)=>{
       res.json(data)
@@ -47,8 +40,20 @@ app.get('/api' , (req , res)=>{
 })
 
 //route to update
-app.put('/updated/:id/:priceToUpdate' , (req , res)=>{
+app.get('/api/:id/:priceToUpdate' , (req , res)=>{
     
+    console.log('id: '+req.params.id)
+    console.log('priceToUpdate: '+req.params.priceToUpdate)
+    let id = Number(req.params.id)
+    let priceToUpdate = Number(req.params.priceToUpdate)
+    updateProduct(id , priceToUpdate)
+    .then(data=>{
+      res.json(data)
+    })
+    .catch(err => {
+      console.log(err);
+      res.json({message:err.message})
+    })
 })
 
 
@@ -67,12 +72,6 @@ app.delete('/api/product/:id',(req,res)=>{
 
 //POST request , insert to database
 app.post('/posted' , (req , res)=>{
-    // db('wishlist')
-    // .insert({ product_name: req.body.productName, product_price: Number(req.body.productPrice), product_url: req.body.productURL })
-    // .then(wishlist =>
-    //     console.log(wishlist)
-    //     )
-
   insertToDataBase()
   .insert({ product_name: req.body.productName, product_price: Number(req.body.productPrice), product_url: req.body.productURL })
   .then(wishlist =>
@@ -93,7 +92,17 @@ app.post('/posted' , (req , res)=>{
 
 
 
-
+//READ get one product
+app.get('/api/:id',(req,res) => {
+  getProduct(req.params.id)
+  .then(product=>{
+    res.json(product);
+  })
+  .catch(err => {
+    console.log(err);
+    res.json({message:err.message})
+  })
+});
 
 
 

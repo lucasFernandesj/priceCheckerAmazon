@@ -15,7 +15,12 @@ let db = require('knex')({
     }
   });
 
+  const getProduct = (product_id) => {
+    return db('wishlist')
+    .where({product_id:product_id})
+  }
 
+  
   const  getAllProducts =()=>{
     return db('wishlist')
     .select().from('wishlist')
@@ -45,6 +50,7 @@ const deleteProduct = (id) => {
   }
 
   module.exports={
+      getProduct,
     getAllProducts,
     insertToDataBase,
     updateProduct,

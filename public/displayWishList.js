@@ -73,10 +73,15 @@ function updatePrice(){
     let thisDataArr = thisData.split('-')
     let id = thisDataArr[thisDataArr.length-1]   // product id on database
     fetch(`http://localhost:3000/api/${id}/${priceToUpdate}` ,{
-        method:'PUT'
+        
+        method:'get'
     })
+
     .then((res)=>res.json())
-    .then((product)=>console.log(product))
+    .then((product)=>{
+        console.log(product);
+        alert('update')
+    })
     .catch((err)=>console.log(err))
     
 }
