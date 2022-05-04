@@ -26,11 +26,27 @@ let db = require('knex')({
    
     
   }
+
+  const updateProduct=(id,priceToUpdate)=>{
+    return db('wishlist')
+    .where('product_id' , `${id}`)
+    .update({
+        product_price:`${priceToUpdate}`
+    })
+  }
   
 
-
+//delete
+const deleteProduct = (id) => {
+    return db('wishlist')
+    .del()
+    .where({product_id:id})
+    .returning('*')
+  }
 
   module.exports={
     getAllProducts,
-    insertToDataBase
+    insertToDataBase,
+    updateProduct,
+    deleteProduct
   }

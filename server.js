@@ -10,7 +10,7 @@ var cron = require('node-cron');
 const nodemailer = require('nodemailer')
 const dotenv = require('dotenv')
 dotenv.config()
-const {getAllProducts , insertToDataBase} = require('./modules/databaseConnection')
+const {getAllProducts , insertToDataBase, updateProduct , deleteProduct} = require('./modules/databaseConnection')
 
 
 
@@ -47,12 +47,22 @@ app.get('/api' , (req , res)=>{
 })
 
 //route to update
-app.get('/updated/:product_id' , (req , res)=>{
-
+app.put('/updated/:id/:priceToUpdate' , (req , res)=>{
+    
 })
 
 
-
+//DELETE product
+app.delete('/api/product/:id',(req,res)=>{
+  deleteProduct(req.params.id)
+  .then(data=>{
+    res.json(data);
+  })
+  .catch(err => {
+    console.log(err);
+    res.json({message:err.message})
+  })
+});
 
 
 //POST request , insert to database
