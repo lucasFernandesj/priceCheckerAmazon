@@ -5,11 +5,12 @@ fetch('http://localhost:3000/api')
 .then(response => response.json())
 .then((data)=>appendToDom(data))
 
-function addInput(e){
+function addUpdateform(e){
     let id =e.path[0].id
     let form = document.createElement('form')
     form.setAttribute('action' , '/updated')
     form.setAttribute('method' , 'POST')
+    form.setAttribute('class' , 'form-update')
 
     let input = document.createElement('input')
     input.setAttribute('type' , 'number')
@@ -36,7 +37,7 @@ function appendToDom(data){
     let changePriceBtn = document.createElement('button')
     changePriceBtn.setAttribute('id' , `${element.product_id}`)
     changePriceBtn.innerText = 'Change price'
-    changePriceBtn.addEventListener('click' , addInput)
+    changePriceBtn.addEventListener('click' , addUpdateform)
     let a = document.createElement('a')
     a.append(changePriceBtn)
     

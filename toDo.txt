@@ -1,7 +1,16 @@
+When addind an item to database , make sure that the fields are the way we want
+
+
+
 Added an input onClick of changePriceBtn on displaywishList.html --> 
 add a whole form with this input inside , the form should have 
 a post request to an updated.ejs that will use the req.body
 to render something like 'updated <%product%> to <%price%>'
+Or , we could send a fetch with a put request ,
+update on the database and preventDefault on the form
+Btn with a delete product : form with prevent default , fetching the database and
+sending a delete request to that product with that id 
+remove the product with that id from the DOM 
 
 On index.html there is an about section , make it somethingonmouseover an 
 about div is displayed with info about the company.

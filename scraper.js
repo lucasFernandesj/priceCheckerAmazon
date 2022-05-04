@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
 const puppeteer = require('puppeteer')
 const nodemailer = require('nodemailer')
+const dotenv = require('dotenv')
+dotenv.config()
 
 let priceNowNumber;
 
