@@ -22,7 +22,9 @@ async function scrapeData(data){
     
     console.log('inside the scrape function')
         for(let i = 0 ; i <data.length; i++ ){
-            
+            if(data[i].product_url.slice(0,17)!=='https://amazon.com'){
+                continue
+            }
               let browser = await puppeteer.launch({ headless:true })
         let page = await browser.newPage()
         await page.setDefaultNavigationTimeout(0);
