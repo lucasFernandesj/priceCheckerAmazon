@@ -1,38 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    
-   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>You added an item!</h1>
-    <h2>item's name:</h2>
-    <p>
-        <%=params.productName%>
-    </p>
-    <h2>item's URL:</h2>
-    <p>
-        <%=params.productURL%>
-    </p>
-    <h2>Maximum price you are willing to pay:</h2>
-    <p>
-       <%=params.productPrice%> 
-    </p>
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: rgb(44, 186, 231);
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: center;
+        height: 100vh;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      h1{
+          text-align: center;
+      }
+      h1,h2{
+          color: white;
+          
+      }
 
+      .item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+      }
+      .name ,.url , .price{
+          display: flex;
+          flex-direction: row;
+      }
+
+        p{
+        font-size: 1.3em;
+        font-weight: 600;
+        margin-top: 23px;
+        margin-left: 5px;
+        color: white;
+      }
+
+      .btn{
+        background-color: white;
+        border: 2px solid white;
+        color: rgb(44, 186, 231);
+        border-radius: 5px;
+        text-align: center;
+        font-size: larger;
+        font-weight: bolder;
+        height: 50px;
+        width: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:  0.4s ease-in-out;
+
+      }
+      .btn:hover{
+        color: white;
+        background-color: rgb(44, 186, 231);
+
+      }
+      a , a:visited {
+        text-decoration: none;
+        padding: 10px;
+      }
+      .nav{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        justify-content: center;
+
+      }
+    </style>
+
+<h1>You added an item!</h1>
+<section class="item">
+    <div class="name">
+         
+    <h2>Item's name:</h2>
+    <p><%=params.productName%></p>
+    </div>
+    <div class="url">
+        <h2>Item's URL:</h2>
+    <p><%=params.productURL%></p>
+    </div>
+    <div class="price">
+        <h2>Maximum price you are willing to pay:</h2>
+    <p><%=params.productPrice%>$</p>
+    </div>
     
+</section>
   
-    <h2>We will email you as soon as this product is available for less than the maximum price you are willing to pay</h2>
-
+<section class="response">
+ <h2>
+      We will email you as soon as this product is available for less than the
+      maximum price you are willing to pay
+    </h2>
+</section>
+   
+<section class="nav">
     <a href="displayWishList.html">
-        <div class="wishList">Go to wish list</div>
+      <div class="wishList btn">Go to wish list</div>
     </a>
 
     <a href="postToWishList.html">
-        <div class="addWishList">Add a product to wish list</div>
+      <div class="addWishList btn">Add a product to wish list</div>
     </a>
-</body>
+</section>
+    
+
+
+
+  </body>
 </html>

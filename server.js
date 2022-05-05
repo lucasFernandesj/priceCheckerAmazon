@@ -11,7 +11,7 @@ const nodemailer = require('nodemailer')
 const dotenv = require('dotenv')
 dotenv.config()
 const {getProduct , getAllProducts , insertToDataBase, updateProduct , deleteProduct} = require('./modules/databaseConnection')
-
+app.use(express.static(__dirname + 'public'));
 
 
 
