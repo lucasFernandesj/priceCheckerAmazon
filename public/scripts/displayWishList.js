@@ -6,21 +6,19 @@ fetch("http://localhost:3000/api")
   .then((data) => appendToDom(data));
 
 
-  //STARTED CHANGES *************************************************
 function addUpdateform(e) {
   // console.log(e)
   if (document.getElementById(`updateForm${e.path[0].id}`) !== null) {
-    document.getElementById(`updateForm${e.path[0].id}`).classList.toggle('hidden')
+    document
+      .getElementById(`updateForm${e.path[0].id}`)
+      .classList.toggle("hidden");
   }
-  
 
   let id = e.path[0].id;
   //creating form
   let formDiv = document.createElement("div");
-  // form.setAttribute('action' , '/updated')
-  // formDiv.setAttribute('method' , 'get')
   formDiv.setAttribute("class", "form-update");
-  formDiv.classList.add('hidden')
+  formDiv.classList.add("hidden");
   formDiv.setAttribute("id", `updateForm${e.path[0].id}`);
   //creating input
   let input = document.createElement("input");
@@ -44,8 +42,8 @@ function appendToDom(data) {
   data.forEach((element) => {
     let div = document.createElement("div");
     div.setAttribute("class", `${element.product_id}`);
-    div.classList.add('div-product' , `div-${element.product_id}`);
-    
+    div.classList.add("div-product", `div-${element.product_id}`);
+
     let h2 = document.createElement("h2");
     h2.innerText = element.product_name;
     let p = document.createElement("p");
@@ -77,8 +75,8 @@ function updatePrice() {
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
-    //remove form after put request
-    this.parentElement.remove()
+  //remove form after put request
+  this.parentElement.remove();
 }
 
 function deletep() {
@@ -87,15 +85,12 @@ function deletep() {
     method: "DELETE",
   })
     .then((res) => res.json())
-    // .then((product) => {
-    //   console.log(product);
-    //   alert("deleted");
-    // })
+
     .catch((err) => {
       console.log(err);
     });
 
-    //remove div from DOM
-    let remDiv = document.querySelector(`.div-${id}`) 
-    remDiv.remove()
+  //remove div from DOM
+  let remDiv = document.querySelector(`.div-${id}`);
+  remDiv.remove();
 }

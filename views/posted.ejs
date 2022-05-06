@@ -12,31 +12,34 @@
         background-color: rgb(44, 186, 231);
         display: flex;
         flex-direction: column;
-        
+
         justify-content: center;
         height: 100vh;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       }
-      h1{
-          text-align: center;
+      h1 {
+        text-align: center;
       }
-      h1,h2{
-          color: white;
-          
+      h1,
+      h2 {
+        color: white;
       }
 
-      .item{
+      .item {
         display: flex;
         flex-direction: column;
         justify-content: center;
         /* align-items: center; */
       }
-      .name ,.url , .price{
-          display: flex;
-          flex-direction: row;
+      .name,
+      .url,
+      .price {
+        display: flex;
+        flex-direction: row;
       }
 
-        p{
+      p {
         font-size: 1.3em;
         font-weight: 600;
         margin-top: 23px;
@@ -44,7 +47,7 @@
         color: white;
       }
 
-      .btn{
+      .btn {
         background-color: white;
         border: 2px solid white;
         color: rgb(44, 186, 231);
@@ -57,64 +60,56 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition:  0.4s ease-in-out;
-
+        transition: 0.4s ease-in-out;
       }
-      .btn:hover{
+      .btn:hover {
         color: white;
         background-color: rgb(44, 186, 231);
-
       }
-      a , a:visited {
+      a,
+      a:visited {
         text-decoration: none;
         padding: 10px;
       }
-      .nav{
-          display: flex;
-          flex-direction: row;
-          align-items: center;
+      .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         justify-content: center;
-
       }
     </style>
 
-<h1>You added an item!</h1>
-<section class="item">
-    <div class="name">
-         
-    <h2>Item's name:</h2>
-    <p><%=params.productName%></p>
-    </div>
-    <div class="url">
+    <h1>You added an item!</h1>
+    <section class="item">
+      <div class="name">
+        <h2>Item's name:</h2>
+        <p><%=params.productName%></p>
+      </div>
+      <div class="url">
         <h2>Item's URL:</h2>
-    <p><%=params.productURL%></p>
-    </div>
-    <div class="price">
+        <p><%=params.productURL%></p>
+      </div>
+      <div class="price">
         <h2>Maximum price you are willing to pay:</h2>
-    <p><%=params.productPrice%>$</p>
-    </div>
-    
-</section>
-  
-<section class="response">
- <h2>
-      We will email you as soon as this product is available for less than the
-      maximum price you are willing to pay
-    </h2>
-</section>
-   
-<section class="nav">
-    <a href="displayWishList.html">
-      <div class="wishList btn">Go to wish list</div>
-    </a>
+        <p><%=params.productPrice%>$</p>
+      </div>
+    </section>
 
-    <a href="postToWishList.html">
-      <div class="addWishList btn">Add a product to wish list</div>
-    </a>
-</section>
-    
+    <section class="response">
+      <h2>
+        We will email you as soon as this product is available for less than the
+        maximum price you are willing to pay
+      </h2>
+    </section>
 
+    <section class="nav">
+      <a href="displayWishList.html">
+        <div class="wishList btn">Go to wish list</div>
+      </a>
 
-
+      <a href="postToWishList.html">
+        <div class="addWishList btn">Add a product to wish list</div>
+      </a>
+    </section>
   </body>
 </html>
