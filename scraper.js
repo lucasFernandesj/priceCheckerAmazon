@@ -13,7 +13,9 @@ function fetchAPI() {
 }
 
 async function scrapeData(data) {
-  if (data.lenght === 0) {
+  
+  if (JSON.stringify(data) === '[]') {
+    console.log('no items in wishlist')
     return;
   }
 
@@ -26,8 +28,9 @@ async function scrapeData(data) {
     }
     let browser = await puppeteer.launch({ headless: true });
     let page = await browser.newPage();
-    await page.setDefaultNavigationTimeout(0);
-    await page.goto(data[i].product_url);
+   page.setDefaultNavigationTimeout(0);
+    await page.goto(data[i].product_url)
+
     let element = await page.waitForSelector(".apexPriceToPay");
     let priceNowStr = await element.evaluate((el) => el.textContent);
     let priceNowStrArr = priceNowStr.split("$");

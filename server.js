@@ -70,10 +70,10 @@ app.post("/posted", (req, res) => {
 
 //* 14 * * * Evoque function every minute past 14:00 , every day
 // * 15 * * * Evoque the fetchAPI function every day at 15:00
-// cron.schedule('* 17 * * *', () => {
-//   fetchAPI()
-//   console.log('running a task every minute');
-// });
+cron.schedule('* 16 * * *', () => {
+  fetchAPI()
+  console.log('running a task every minute');
+});
 
 //READ get one product
 app.get("/api/:id", (req, res) => {
